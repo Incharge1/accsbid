@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - ACCSBID</title>
+    <style>
+        body { font-family: Arial; background: #f7f7f7; }
+        .box {
+            width: 350px; margin: 80px auto; padding: 20px;
+            background: white; border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input {
+            width: 90%; padding: 10px; margin: 10px 0;
+            border: 1px solid #ccc; border-radius: 5px;
+        }
+        button {
+            width: 100%; padding: 10px;
+            background: blue; color: white; border: none;
+            border-radius: 5px; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="result"></p>
+    </div>
+
+<script>
+function login() {
+    document.getElementById("result").innerText = "Login clicked!";
+}
+</script>
+
+</body>
+</html>
