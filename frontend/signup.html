@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup - ACCSBID</title>
+</head>
+<body>
+    <h2>Create Account</h2>
+
+    <form onsubmit="signup(event)">
+        <input id="username" placeholder="Username" required>
+        <input id="password" type="password" placeholder="Password" required>
+        <button type="submit">Signup</button>
+    </form>
+
+    <p id="msg"></p>
+
+<script>
+async function signup(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    let res = await fetch("https://accsbid.onrender.com/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+    });
+
+    let data = await res.json();
+    document.getElementById("msg").innerText = data.message;
+
+    if (res.status === 200) {
+        window.location.href = "login.html";
+    }
+}
+</script>
+
+</body>
+</html>

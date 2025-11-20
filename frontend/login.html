@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - ACCSBID</title>
+</head>
+<body>
+    <h2>Login</h2>
+
+    <form onsubmit="login(event)">
+        <input id="username" placeholder="Username">
+        <input id="password" type="password" placeholder="Password">
+        <button type="submit">Login</button>
+    </form>
+
+    <p id="msg"></p>
+
+<script>
+    async function login(event) {
+        event.preventDefault();
+
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+
+        let res = await fetch("https://accsbid.onrender.com/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+        });
+
+        let data = await res.json();
+        document.getElementById("msg").innerText = data.message;
+
+        if (res.status === 200) {
+            localStorage.setItem("user", username);
+            window.location.href = "dashboard.html";
+        }
+    }
+</script>
+
+</body>
+</html>

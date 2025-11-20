@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - ACCSBID</title>
+</head>
+<body>
+
+    <h2>User Dashboard</h2>
+
+    <p>Welcome, <span id="user"></span></p>
+    <a href="index.html" onclick="logout()">Logout</a>
+
+<script>
+    // Read logged-in user
+    let user = localStorage.getItem("user");
+
+    // If no user stored → redirect to login
+    if (!user) {
+        window.location.href = "login.html";
+    }
+
+    // Show username
+    document.getElementById("user").innerText = user;
+
+    function logout() {
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+</html>
