@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ACCSBID Website</title>
+</head>
+<body>
+    <h1>Welcome to ACCSBID</h1>
+    <p>Your backend server is running successfully!</p>
+
+    <p>Click to test API:</p>
+    <button onclick="testApi()">Test Server</button>
+
+    <p id="result"></p>
+
+    <script>
+        function testApi() {
+            fetch('/api/test')
+                .then(res => res.text())
+                .then(data => document.getElementById('result').innerText = data)
+                .catch(err => alert("Error: " + err));
+        }
+    </script>
+</body>
+</html>
+
